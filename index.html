@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مكتبة المصطفى | أسعار الكتب المدرسية</title>
+  <meta name="description" content="أسعار الكتب المدرسية في مكتبة المصطفى - اطلب كتبك مباشرة عبر واتساب">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
+  <header class="site-header glass">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">📚</span>
+        <span class="logo-text"><strong>مكتبة المصطفى</strong><small>أسعار الكتب المدرسية</small></span>
+      </a>
+      <nav class="header-nav">
+        <a href="calculator.html" class="btn btn-ghost"><span>🖨️</span><span>حاسبة الطباعة</span></a>
+        <button id="themeToggle" class="btn-icon" aria-label="تبديل الوضع"><span class="theme-icon">🌙</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content glass">
+          <h1>أسعار الكتب المدرسية</h1>
+          <p>تعرّف على أسعار الكتب لجميع المراحل الدراسية، واختر ما تحتاجه لطلبها مباشرة عبر واتساب.</p>
+          <div class="hero-actions">
+            <a href="#grades" class="btn btn-primary">اختر صفك الدراسي</a>
+            <a href="calculator.html" class="btn btn-outline">حاسبة الطباعة</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="grades" class="section">
+      <div class="container">
+        <h2 class="section-title">اختر المرحلة والصف</h2>
+        <div id="stageTabs" class="stage-tabs glass"></div>
+        <div id="gradeGrid" class="grade-grid"></div>
+      </div>
+    </section>
+
+    <section id="booksSection" class="section hidden">
+      <div class="container">
+        <div class="section-header glass">
+          <div>
+            <h2 class="section-title" id="currentGradeTitle"></h2>
+            <p class="section-subtitle" id="currentGradeMeta"></p>
+          </div>
+          <div class="section-controls">
+            <div class="search-box">
+              <span>🔍</span>
+              <input type="search" id="searchInput" placeholder="ابحث باسم الكتاب...">
+              <button id="clearSearch" class="clear-btn hidden" aria-label="مسح البحث">×</button>
+            </div>
+            <select id="sortSelect" class="select-input">
+              <option value="default">الترتيب الافتراضي</option>
+              <option value="name-asc">الاسم (أ-ي)</option>
+              <option value="name-desc">الاسم (ي-أ)</option>
+              <option value="price-asc">السعر (الأقل)</option>
+              <option value="price-desc">السعر (الأعلى)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrapper glass">
+          <table class="books-table">
+            <thead><tr>
+              <th class="col-check"></th>
+              <th>اسم المادة</th>
+              <th>عدد الصفحات</th>
+              <th>السعر النهائي</th>
+              <th class="col-action"></th>
+            </tr></thead>
+            <tbody id="booksBody"></tbody>
+            <tfoot id="booksFooter"></tfoot>
+          </table>
+        </div>
+        <p id="noResults" class="no-results hidden">لا توجد نتائج مطابقة.</p>
+      </div>
+    </section>
+
+    <section id="deliverySection" class="section hidden">
+      <div class="container">
+        <div class="glass delivery-card">
+          <h2 class="section-title">ملخص الطلب والتوصيل</h2>
+          <div class="delivery-grid">
+            <div>
+              <label class="field-label">منطقة التوصيل</label>
+              <select id="deliverySelect" class="select-input">
+                <option value="">اختر منطقة التوصيل</option>
+                <option value="ramtha">داخل الرميثة - 1,000 د.ع</option>
+                <option value="muthanna">داخل المثنى (خارج الرميثة) - 3,000 د.ع</option>
+                <option value="iraq">بقية المحافظات - 5,000 د.ع</option>
+              </select>
+            </div>
+            <div class="summary">
+              <div class="summary-row"><span>عدد الكتب المحددة</span><strong id="summaryCount">0</strong></div>
+              <div class="summary-row"><span>مجموع أسعار الكتب</span><strong id="summaryBooks">0 د.ع</strong></div>
+              <div class="summary-row"><span>أجور التوصيل</span><strong id="summaryDelivery">—</strong></div>
+              <div class="summary-row total"><span>المبلغ الإجمالي</span><strong id="summaryTotal">—</strong></div>
+            </div>
+          </div>
+          <div class="summary-actions">
+            <button id="orderSelectedBtn" class="btn btn-whatsapp btn-large" disabled>
+              <span>📱</span><span>طلب المواد المحددة عبر واتساب</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="floatingBar" class="floating-bar glass hidden">
+    <div class="floating-info"><strong id="floatCount">0</strong><span>مادة محددة</span></div>
+    <button id="floatOrderBtn" class="btn btn-whatsapp"><span>📱</span><span>طلب المواد المحددة</span></button>
+  </div>
+
+  <div id="toast" class="toast glass"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> مكتبة المصطفى — جميع الحقوق محفوظة.</p>
+      <p class="small">للطلب: <a href="https://wa.me/9647813985853" target="_blank" rel="noopener">+964 781 398 5853</a></p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
